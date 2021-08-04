@@ -2,12 +2,13 @@ from django.db import models
 from django.conf import settings
 from model_utils.models import TimeStampedModel
 from ckeditor_uploader.fields import RichTextUploadingField
+from .managers import EntryManager
 
 class Category(TimeStampedModel):
 
     short_name = models.CharField('short name', max_length=50, unique=True)
 
-    full_name = models.CharField('short name', max_length=50)
+    full_name = models.CharField('full name', max_length=50)
 
     class Meta:
         verbose_name = "Category"
@@ -45,10 +46,12 @@ class Entry(TimeStampedModel):
     in_home = models.BooleanField(default=False)
     slug = models.SlugField(editable=False, max_length=100)
 
+    objects = EntryManager()
+
     class Meta:
         verbose_name = "Entry"
         verbose_name_plural = "Entries"
         db_table = "entry"
 
     def __str__(self):
-        return self.Title
+        return self.title
