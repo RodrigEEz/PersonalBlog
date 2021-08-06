@@ -1,18 +1,35 @@
 {% load static %}
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 'css/app.css' %}">
-        <title>
-            {% block title %}{% endblock title %}
-        </title>
-        {% block css %}{% endblock css %}
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <title>{% block title %}{% endblock title %}</title>
+  {% block css %}{% endblock css %}
+</head>
+<body>
 
-        {% block content %}{% endblock content %}
+  {% block content %}
+  {% endblock content %}
 
-        {% block js %}{% endblock js %}
+  {% block js %}{% endblock js %}
 
-        <script src="{% static 'js/app.js' %}"></script>
-    </body>
+  <script src="{% static 'js/jQuery.min.js' %}"></script>
+
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.core.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.reveal.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.touch.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.triggers.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.mediaQuery.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.motion.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.box.js' %}"></script>
+  <script src="{% static 'js/plugins/foundation.util.keyboard.js' %}"></script>
+
+  <script>  
+    $(document).foundation();
+  </script> 
+</body>
 </html>
